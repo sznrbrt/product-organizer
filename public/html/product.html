@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{ currentProduct.name }} - {{ currentProduct.price | currency }}
+      </div>
+      <div class="panel-body">
+          <div class="col-xs-1">
+            <img ng-src="{{ currentProduct.imgUrl }}" alt="">
+          </div>
+          <div class="col-xs-6">
+            {{ currentProduct.desc }}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

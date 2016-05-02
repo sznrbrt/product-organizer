@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Organizer</title>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <script src="/js/products.js"></script>
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/filters.js"></script>
+</head>
+<body ng-app="prodOrgApp">
+
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a ui-sref="products">Products</a></li>
+        <li><a href="#">Statistics</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Where the templates go -->
+    <ui-view></ui-view>
+  <!--  -->
+
+</body>
+</html>

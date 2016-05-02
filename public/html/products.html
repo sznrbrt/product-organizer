@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <button class="btn btn-success" ng-click='openAddProduct()'>+ Add a product</button>
+    </div>
+    <div class="col-xs-12" ng-if="addingProduct">
+      <h4>New Product:</h4>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter name" ng-model="newProduct.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Image URL</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter url for image" ng-model="newProduct.imgUrl">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Category</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter category" ng-model="newProduct.category">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter description" ng-model="newProduct.desc">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Price</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter price in $'s" ng-model="newProduct.price">
+          </div>
+        </div>
+        <div class="form-group">
+         <div class="col-sm-offset-2 col-sm-10">
+           <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+           <button class="btn btn-success" ng-click="addNewProduct()">Add</button>
+         </div>
+       </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group search">
+        <label>Search:</label>
+        <input type="text" class="form-control" ng-model='searchFilter'>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <table class="table table-hover">
+        <thead>
+          <th class="sortable" ng-click="sortBy('id')" id="#id">#ID</th>
+          <th>Image</th>
+          <th class="sortable" ng-click="sortBy('category')" id="#category">Category</th>
+          <th class="sortable" ng-click="sortBy('name')" id="#name">Name</th>
+          <th>Description</th>
+          <th class="sortable" ng-click="sortBy('price')" id="#price">Price</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in products | filter:searchFilter | orderBy:sortOrder track by $index">
+            <td>{{ product.id }}</td>
+            <td><img ng-src="{{ product.imgUrl }}" alt=""></td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.desc }}</td>
+            <td>{{ product.price | currency:$:0 }}</td>
+            <td ng-click="goToProduct(product.id)"><span class="glyphicon glyphicon-menu-right"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
